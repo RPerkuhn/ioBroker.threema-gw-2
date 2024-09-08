@@ -1,5 +1,14 @@
 {
-    "threema-gw adapter settings": "Ajustes del adaptador para threema-gw",
-    "option1": "opción1",
-    "option2": "opción2"
+    "threema-gw adapter settings": "Configuración del adaptador para threema-gw",
+    "Options": "Opciones",
+    "apisecret": "secreto de API",
+    "Get your API secret here Threema gateway": "Obtenga su API secreta aquí Threema gateway",
+    "from": "remitente de tres",
+    "Threema ID of gateway-sender": "ID de Threema del remitente de la puerta de enlace",
+    "to": "Destinatario del mensaje Threema",
+    "Threema ID of message receipient": "ID de Threema del destinatario del mensaje",
+    "API secret": "secreto de API",
+    "Threema sender": "remitente de tres",
+    "Threema message receipient": "Destinatario del mensaje Threema",
+    "Get your API secret on https://gateway.threema.ch": "Obtenga su secreto de API en https://gateway.tresma.ch"
 }

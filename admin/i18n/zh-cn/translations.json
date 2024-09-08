@@ -1,5 +1,14 @@
 {
-    "threema-gw adapter settings": "threema-gw的适配器设置",
-    "option1": "选项1",
-    "option2": "选项2"
+    "threema-gw adapter settings": "Threema-gw 的适配器设置",
+    "Options": "选项",
+    "apisecret": "API秘密",
+    "Get your API secret here Threema gateway": "在此处获取您的 API 秘密 Threema 网关",
+    "from": "三马发件人",
+    "Threema ID of gateway-sender": "网关发送者的 Threema ID",
+    "to": "Threema消息接收者",
+    "Threema ID of message receipient": "消息接收者的 Threema ID",
+    "API secret": "API秘密",
+    "Threema sender": "三马发件人",
+    "Threema message receipient": "Threema消息接收者",
+    "Get your API secret on https://gateway.threema.ch": "在 https://gateway. Threema.ch 上获取您的 API 秘密"
 }

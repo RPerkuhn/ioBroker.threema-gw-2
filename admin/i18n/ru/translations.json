@@ -1,5 +1,14 @@
 {
-    "threema-gw adapter settings": "Настройки адаптера для threema-gw",
-    "option1": "вариант 1",
-    "option2": "вариант 2"
+    "threema-gw adapter settings": "Настройки адаптера для Threema-GW",
+    "Options": "Параметры",
+    "apisecret": "Секрет API",
+    "Get your API secret here Threema gateway": "Получите секрет своего API здесь. Шлюз Threema.",
+    "from": "Трема отправитель",
+    "Threema ID of gateway-sender": "Threema ID шлюза-отправителя",
+    "to": "Получатель сообщения Threema",
+    "Threema ID of message receipient": "Threema ID получателя сообщения",
+    "API secret": "Секрет API",
+    "Threema sender": "Трема отправитель",
+    "Threema message receipient": "Получатель сообщения Threema",
+    "Get your API secret on https://gateway.threema.ch": "Получите секрет своего API на https://gateway.threema.ch."
 }

@@ -1,16 +1,38 @@
 {
     "i18n": true,
-    "type": "panel",
+    "type": "tabs",
     "items": {
-        "option1": {
-            "type": "checkbox",
-            "label": "option1",
-            "newLine": true
-        },
-        "option2": {
-            "type": "text",
-            "label": "option2",
-            "newLine": true
+        "_options": {
+            "type": "panel",
+            "label": "Options",
+            "items": {
+                "apisecret": {
+                    "type": "text",
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 6,
+                    "label": "API secret",
+                    "help": "Get your API secret on https://gateway.threema.ch",
+                    "newLine": true
+                },
+                "from": {
+                    "type": "text",
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 6,
+                    "label": "Threema sender",
+                    "help": "Threema ID of gateway-sender",
+                    "newLine": true
+                },
+                "to": {
+                    "type": "text",
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 6,
+                    "label": "Threema message receipient",
+                    "help": "Threema ID of message receipient"
+                }
+            }
         }
     }
 }
