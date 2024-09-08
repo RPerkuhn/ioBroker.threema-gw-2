@@ -34,14 +34,15 @@ Once configured you can send out alert- or info messages including emoticons and
 
 To send a threema-message from ScriptEngine just write:
 
-````javascript
+```javascript
 // simple message using instance 0 of threema-gw
-sendto('threema-gw.0','send','The battery in motion detector is low');
+sendto("threema-gw.0", "send", "The battery in motion detector is low");
 
 // message including emoticon, linebreak and special character using instance 0 of threema-gw
-sendto('threema-gw.0','send','😊\nThe temperature outside is above 25℃');
-
+sendto("threema-gw.0", "send", "😊\nThe temperature outside is above 25℃");
 ```
+
+## Changelog
 
 ## Developer manual
 
@@ -119,4 +120,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-````
+
+```
+
+```
