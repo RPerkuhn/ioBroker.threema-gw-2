@@ -42,8 +42,6 @@ sendto("threema-gw.0", "send", "The battery in motion detector is low");
 sendto("threema-gw.0", "send", "😊\nThe temperature outside is above 25℃");
 ```
 
-## Changelog
-
 ## Developer manual
 
 This section is intended for the developer. It can be deleted later.
