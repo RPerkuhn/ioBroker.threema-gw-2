@@ -4,7 +4,7 @@
     "adapterName": "threema-gw",
     "title": "Threema Gateway Messenger",
     "description": "ioBroker Threema Gateway Adapter",
-    "keywords": ["\"ioBroker\""],
+    "keywords": ["ioBroker"],
     "expert": "yes",
     "features": ["adapter"],
     "adminFeatures": [],
