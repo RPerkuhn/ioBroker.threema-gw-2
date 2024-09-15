@@ -31,60 +31,74 @@ class ThreemaGw extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
-        // // Initialize your adapter here
+        // Initialize your adapter here
 
-        // // Reset the connection indicator during startup
-        // this.setState("info.connection", false, true);
+        // Reset the connection indicator during startup
+        this.setState("info.connection", false, true);
 
-        // // The adapters config (in the instance object everything under the attribute "native") is accessible via
-        // // this.config:
-        // this.log.info("config option1: " + this.config.option1);
-        // this.log.info("config option2: " + this.config.option2);
+        // The adapters config (in the instance object everything under the attribute "native") is accessible via
+        // this.config:
 
-        // /*
-		// For every state in the system there has to be also an object of type state
-		// Here a simple template for a boolean variable named "testVariable"
-		// Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-		// */
-        // await this.setObjectNotExistsAsync("testVariable", {
-        //     type: "state",
-        //     common: {
-        //         name: "testVariable",
-        //         type: "boolean",
-        //         role: "indicator",
-        //         read: true,
-        //         write: true,
-        //     },
-        //     native: {},
-        // });
+        this.log.info("Absender ist: " + this.config.from);
+        this.log.info("Empfänger: " + this.config.to);
+        /*
+        For every state in the system there has to be also an object of type state
+        Here a simple template for a boolean variable named "testVariable"
+        Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
+        */
+        await this.setObjectNotExistsAsync("info.credits", {
+            type: "state",
+            common: {
+                name: "Number of remaining credits at threema gateway",
+                type: "number",
+                role: "level",
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync("info.lastresponse", {
+            type: "state",
+            common: {
+                name: "Last response from threema gateway",
+                type: "string",
+                role: "level",
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
 
-        // // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-        // this.subscribeStates("testVariable");
-        // // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
-        // // this.subscribeStates("lights.*");
-        // // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
-        // // this.subscribeStates("*");
+        // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
+        //this.subscribeStates("testVariable");
+        // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
+        // this.subscribeStates("lights.*");
+        // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
+        // this.subscribeStates("*");
 
-        // /*
-		// 	setState examples
-		// 	you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-		// */
-        // // the variable testVariable is set to true as command (ack=false)
-        // await this.setStateAsync("testVariable", true);
+        /*
+        	setState examples
+        	you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
+        */
+        // the variable testVariable is set to true as command (ack=false)
+        //await this.setStateAsync("testVariable", true);
 
-        // // same thing, but the value is flagged "ack"
-        // // ack should be always set to true if the value is received from or acknowledged from the target system
-        // await this.setStateAsync("testVariable", { val: true, ack: true });
+        // same thing, but the value is flagged "ack"
+        // ack should be always set to true if the value is received from or acknowledged from the target system
+        //await this.setStateAsync("testVariable", { val: true, ack: true });
 
-        // // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        // await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
+        // same thing, but the state is deleted after 30s (getState will return null afterwards)
+        //await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
 
-        // // examples for the checkPassword/checkGroup functions
-        // let result = await this.checkPasswordAsync("admin", "iobroker");
-        // this.log.info("check user admin pw iobroker: " + result);
+        await this.setStateAsync("info.credits", { val: -999, ack: true });
+        await this.setStateAsync("info.lastresponse", { val: "adapter is not running", ack: true });
 
-        // result = await this.checkGroupAsync("admin", "admin");
-        // this.log.info("check group user admin group admin: " + result);
+        // examples for the checkPassword/checkGroup functions
+        let result = await this.checkPasswordAsync("admin", "iobroker");
+        this.log.info("check user admin pw iobroker: " + result);
+
+        result = await this.checkGroupAsync("admin", "admin");
+        this.log.info("check group user admin group admin: " + result);
     }
 
     /**
@@ -127,33 +141,33 @@ class ThreemaGw extends utils.Adapter {
      * @param {string} id
      * @param {ioBroker.State | null | undefined} state
      */
-    onStateChange(id, state) {
-        if (state) {
-            // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-        } else {
-            // The state was deleted
-            this.log.info(`state ${id} deleted`);
-        }
-    }
-
-    // If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
-    // /**
-    //  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
-    //  * Using this method requires "common.messagebox" property to be set to true in io-package.json
-    //  * @param {ioBroker.Message} obj
-    //  */
-    // onMessage(obj) {
-    //     if (typeof obj === "object" && obj.message) {
-    //         if (obj.command === "send") {
-    //             // e.g. send email or pushover or whatever
-    //             this.log.info("send command");
-
-    //             // Send response in callback if required
-    //             if (obj.callback) this.sendTo(obj.from, obj.command, "Message received", obj.callback);
-    //         }
+    // onStateChange(id, state) {
+    //     if (state) {
+    //         // The state was changed
+    //         this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+    //     } else {
+    //         // The state was deleted
+    //         this.log.info(`state ${id} deleted`);
     //     }
     // }
+
+    // If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
+    /**
+     * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
+     * Using this method requires "common.messagebox" property to be set to true in io-package.json
+     * @param {ioBroker.Message} obj
+     */
+    onMessage(obj) {
+        if (typeof obj === "object" && obj.message) {
+            if (obj.command === "send") {
+                // e.g. send email or pushover or whatever
+                this.log.info("send command");
+
+                // Send response in callback if required
+                if (obj.callback) this.sendTo(obj.from, obj.command, "Message received", obj.callback);
+            }
+        }
+    }
 }
 
 if (require.main !== module) {

@@ -44,12 +44,8 @@
             "uk": "Шлюзовий адаптер ioBroker Threema",
             "zh-cn": "ioBroker Threema 网关适配器"
         },
-        "authors": [
-            "RPerkuhn <ralf.perkuhn@online.de>"
-        ],
-        "keywords": [
-            "\"ioBroker\""
-        ],
+        "authors": ["RPerkuhn <ralf.perkuhn@online.de>"],
+        "keywords": ["ioBroker", "messaging", "threema", "gateway"],
         "license": "MIT",
         "licenseInformation": {
             "type": "free",
