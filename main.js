@@ -21,9 +21,9 @@ class ThreemaGw extends utils.Adapter {
             name: "threema-gw",
         });
         this.on("ready", this.onReady.bind(this));
-        this.on("stateChange", this.onStateChange.bind(this));
+        // this.on("stateChange", this.onStateChange.bind(this));
         // this.on("objectChange", this.onObjectChange.bind(this));
-        // this.on("message", this.onMessage.bind(this));
+        this.on("message", this.onMessage.bind(this));
         this.on("unload", this.onUnload.bind(this));
     }
 
@@ -34,7 +34,7 @@ class ThreemaGw extends utils.Adapter {
         // Initialize your adapter here
 
         // Reset the connection indicator during startup
-        this.setState("info.connection", false, true);
+        this.setState("info.connection", true, true);
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
@@ -112,6 +112,7 @@ class ThreemaGw extends utils.Adapter {
             // clearTimeout(timeout2);
             // ...
             // clearInterval(interval1);
+            this.setState("info.connection", false, true);
 
             callback();
         } catch (e) {
