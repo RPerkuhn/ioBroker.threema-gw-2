@@ -54,7 +54,7 @@
         "platform": "Javascript/Node.js",
         "main": "main.js",
         "icon": "threema-gw.png",
-        "enabled": true,
+        "enabled": false,
         "extIcon": "https://raw.githubusercontent.com/RPerkuhn/ioBroker.threema-gw-2/main/admin/threema-gw.png",
         "readme": "https://github.com/RPerkuhn/ioBroker.threema-gw-2/blob/main/README.md",
         "loglevel": "info",
@@ -66,6 +66,10 @@
         "dataSource": "poll",
         "adminUI": {
             "config": "json"
+        },
+        "supportedMessages": {
+            "custom": true,
+            "deviceManager": true
         },
         "dependencies": [
             {
@@ -103,6 +107,32 @@
                 "read": true,
                 "write": false,
                 "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.credits",
+            "type": "state",
+            "common": {
+                "name": "Number of remaining credits at threema gateway",
+                "type": "number",
+                "role": "level",
+                "read": true,
+                "write": true,
+                "def": -999
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.lastresponse",
+            "type": "state",
+            "common": {
+                "name": "Last response from threema gateway",
+                "type": "string",
+                "role": "level",
+                "read": true,
+                "write": true,
+                "def": "adapter is not running"
             },
             "native": {}
         }

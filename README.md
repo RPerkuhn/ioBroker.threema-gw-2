@@ -36,10 +36,10 @@ To send a threema-message from ScriptEngine just write:
 
 ```javascript
 // simple message using instance 0 of threema-gw
-sendto("threema-gw.0", "send", "The battery in motion detector is low");
+sendTo("threema-gw.0", "send", "The battery in motion detector is low");
 
 // message including emoticon, linebreak and special character using instance 0 of threema-gw
-sendto("threema-gw.0", "send", "😊\nThe temperature outside is above 25℃");
+sendTo("threema-gw.0", "send", "😊\nThe temperature outside is above 25℃");
 ```
 
 ## Developer manual
