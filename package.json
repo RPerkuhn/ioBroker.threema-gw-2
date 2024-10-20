@@ -1,6 +1,6 @@
 {
   "name": "iobroker.threema-gw",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "ioBroker Threema Gateway Adapter",
   "author": {
     "name": "RPerkuhn",
