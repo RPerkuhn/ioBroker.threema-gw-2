@@ -148,7 +148,7 @@ class ThreemaGw extends utils.Adapter {
                     from: this.config.from,
                     secret: this.config.apisecret,
                     to: this.config.to,
-                    text: messageText,
+                    text: messageText.replace(/\\n/g, "\n"),
                 },
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
